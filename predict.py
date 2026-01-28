@@ -1,3 +1,6 @@
+# THIS IS PURE CHATGPT just for fun
+# We probably don't need to include this
+
 import argparse
 import pathlib
 from typing import List
