@@ -48,6 +48,7 @@ def main():
             waiting_index = waiting_index + 1
             if waiting_index == epochs_not_improving:
                 learning_rate = learning_rate * 0.5
+                waiting_index = 0
 
         print(
             f"Learning Rate: {learning_rate}, waiting index: {waiting_index}/{epochs_not_improving}"

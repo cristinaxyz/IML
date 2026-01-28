@@ -1,0 +1,551 @@
+Using device: cuda
+Epoch 1/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 1.7070574561393688, Validation Loss: 2.0808822344093865
+Train Accuracy: 0.4217415015451736, Validation Accuracy: 0.47016011644832606
+Epoch 2/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 1.376607231260798, Validation Loss: 1.1939756432127917
+Train Accuracy: 0.5400836211597891, Validation Accuracy: 0.5924308588064047
+Epoch 3/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 1.24136088209095, Validation Loss: 1.1812115874591527
+Train Accuracy: 0.5837120523541174, Validation Accuracy: 0.6346433770014556
+Epoch 4/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 1.1433539344080794, Validation Loss: 0.8595599206774516
+Train Accuracy: 0.6226140701690601, Validation Accuracy: 0.7190684133915575
+Epoch 5/110
+
+Learning Rate: 0.001, waiting index: 1/5
+Train Loss: 1.050155479652603, Validation Loss: 0.9764860399078247
+Train Accuracy: 0.6453372114161061, Validation Accuracy: 0.6695778748180495
+Epoch 6/110
+
+Learning Rate: 0.001, waiting index: 2/5
+Train Loss: 0.9584205057529552, Validation Loss: 0.9661182115475336
+Train Accuracy: 0.6856935102708599, Validation Accuracy: 0.6855895196506551
+Epoch 7/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.9363747745253914, Validation Loss: 0.8264793421980943
+Train Accuracy: 0.6953281221596074, Validation Accuracy: 0.745269286754003
+Epoch 8/110
+
+Learning Rate: 0.001, waiting index: 1/5
+Train Loss: 0.8866813658308146, Validation Loss: 1.0059356986066486
+Train Accuracy: 0.7085984366478822, Validation Accuracy: 0.7205240174672489
+Epoch 9/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.8071976460054601, Validation Loss: 0.7288622928910727
+Train Accuracy: 0.7262315942555899, Validation Accuracy: 0.7700145560407569
+Epoch 10/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.768854654526314, Validation Loss: 0.7245803886517513
+Train Accuracy: 0.7453190329031085, Validation Accuracy: 0.7554585152838428
+Epoch 11/110
+
+Learning Rate: 0.001, waiting index: 1/5
+Train Loss: 0.7058124807049547, Validation Loss: 0.756265483227229
+Train Accuracy: 0.7609525540810762, Validation Accuracy: 0.75254730713246
+Epoch 12/110
+
+Learning Rate: 0.001, waiting index: 2/5
+Train Loss: 0.6793259056967305, Validation Loss: 0.7916155844937679
+Train Accuracy: 0.7745864388293038, Validation Accuracy: 0.7540029112081513
+Epoch 13/110
+
+Learning Rate: 0.001, waiting index: 3/5
+Train Loss: 0.6723826592755933, Validation Loss: 0.7473891066953952
+Train Accuracy: 0.7713143064897291, Validation Accuracy: 0.7569141193595342
+Epoch 14/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.6176649739024824, Validation Loss: 0.6611292873993191
+Train Accuracy: 0.7964006544264679, Validation Accuracy: 0.7860262008733624
+Epoch 15/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.5790083306301314, Validation Loss: 0.6252584446118562
+Train Accuracy: 0.8133066715142702, Validation Accuracy: 0.7976710334788938
+Epoch 16/110
+
+Learning Rate: 0.001, waiting index: 1/5
+Train Loss: 0.5439565790333958, Validation Loss: 0.6349324338352295
+Train Accuracy: 0.8213052172332304, Validation Accuracy: 0.7903930131004366
+Epoch 17/110
+
+Learning Rate: 0.001, waiting index: 0/5
+Train Loss: 0.5312426379873165, Validation Loss: 0.5979120001370383
+Train Accuracy: 0.830030903472096, Validation Accuracy: 0.7976710334788938
+Epoch 18/110
+
+Learning Rate: 0.001, waiting index: 1/5
+Train Loss: 0.5059845807618947, Validation Loss: 0.6225551239728624
+Train Accuracy: 0.8331212506816943, Validation Accuracy: 0.7947598253275109
+Epoch 19/110
+
+Learning Rate: 0.001, waiting index: 2/5
+Train Loss: 0.46085757735715066, Validation Loss: 0.6075870642327369
+Train Accuracy: 0.849300127249591, Validation Accuracy: 0.8049490538573508
+Epoch 20/110
+
+Learning Rate: 0.001, waiting index: 3/5
+Train Loss: 0.44876554967702476, Validation Loss: 0.6319892561087572
+Train Accuracy: 0.858207598618433, Validation Accuracy: 0.8020378457059679
+Epoch 21/110
+
+Learning Rate: 0.001, waiting index: 4/5
+Train Loss: 0.3923348063214329, Validation Loss: 0.6198509111226905
+Train Accuracy: 0.872023268496637, Validation Accuracy: 0.8195050946142649
+Epoch 22/110
+
+Learning Rate: 0.0005, waiting index: 5/5
+Train Loss: 0.3751390225153604, Validation Loss: 0.6690695528903491
+Train Accuracy: 0.8792946736956917, Validation Accuracy: 0.7889374090247453
+Epoch 23/110
+
+Learning Rate: 0.0005, waiting index: 6/5
+Train Loss: 0.37156032987153625, Validation Loss: 0.6572445723122416
+Train Accuracy: 0.8807489547355026, Validation Accuracy: 0.7889374090247453
+Epoch 24/110
+
+Learning Rate: 0.0005, waiting index: 7/5
+Train Loss: 0.3336047726258205, Validation Loss: 0.6369088349123878
+Train Accuracy: 0.8907471368842028, Validation Accuracy: 0.8049490538573508
+Epoch 25/110
+
+Learning Rate: 0.0005, waiting index: 0/5
+Train Loss: 0.3234892048995073, Validation Loss: 0.5518141170256002
+Train Accuracy: 0.8954735502635884, Validation Accuracy: 0.8064046579330422
+Epoch 26/110
+
+Learning Rate: 0.0005, waiting index: 1/5
+Train Loss: 0.286632007648371, Validation Loss: 0.561271822113907
+Train Accuracy: 0.9129249227413198, Validation Accuracy: 0.8136826783114993
+Epoch 27/110
+
+Learning Rate: 0.0005, waiting index: 0/5
+Train Loss: 0.26566286953028995, Validation Loss: 0.5354169399485887
+Train Accuracy: 0.9171059807307762, Validation Accuracy: 0.826783114992722
+Epoch 28/110
+
+Learning Rate: 0.0005, waiting index: 1/5
+Train Loss: 0.235702552312487, Validation Loss: 0.580635157054198
+Train Accuracy: 0.924377385929831, Validation Accuracy: 0.8224163027656477
+Epoch 29/110
+
+Learning Rate: 0.0005, waiting index: 2/5
+Train Loss: 0.23855467781426554, Validation Loss: 0.5957843459653905
+Train Accuracy: 0.9225595346300672, Validation Accuracy: 0.8282387190684134
+Epoch 30/110
+
+Learning Rate: 0.0005, waiting index: 3/5
+Train Loss: 0.22079356051462543, Validation Loss: 0.6273760069234519
+Train Accuracy: 0.9343755680785312, Validation Accuracy: 0.8093158660844251
+Epoch 31/110
+
+Learning Rate: 0.0005, waiting index: 4/5
+Train Loss: 0.21009491103091982, Validation Loss: 0.5767186645681399
+Train Accuracy: 0.9392837665878931, Validation Accuracy: 0.8253275109170306
+Epoch 32/110
+
+Learning Rate: 0.00025, waiting index: 5/5
+Train Loss: 0.17047888410176593, Validation Loss: 0.5560865357442449
+Train Accuracy: 0.9463733866569715, Validation Accuracy: 0.8253275109170306
+Epoch 33/110
+
+Learning Rate: 0.00025, waiting index: 6/5
+Train Loss: 0.17482115356563957, Validation Loss: 0.7514062820655176
+Train Accuracy: 0.9489183784766406, Validation Accuracy: 0.8049490538573508
+Epoch 34/110
+
+Learning Rate: 0.00025, waiting index: 7/5
+Train Loss: 0.16632406273238812, Validation Loss: 0.6054992621054187
+Train Accuracy: 0.9485548082166879, Validation Accuracy: 0.8355167394468704
+Epoch 35/110
+
+Learning Rate: 0.00025, waiting index: 8/5
+Train Loss: 0.16247452288526426, Validation Loss: 0.6534006093109157
+Train Accuracy: 0.9521905108162152, Validation Accuracy: 0.7918486171761281
+Epoch 36/110
+
+Learning Rate: 0.00025, waiting index: 0/5
+Train Loss: 0.14562957302474705, Validation Loss: 0.5343953672101046
+Train Accuracy: 0.9596437011452463, Validation Accuracy: 0.8398835516739447
+Epoch 37/110
+
+Learning Rate: 0.00025, waiting index: 1/5
+Train Loss: 0.13063046173167164, Validation Loss: 0.8414270705367226
+Train Accuracy: 0.9645518996546083, Validation Accuracy: 0.8107714701601164
+Epoch 38/110
+
+Learning Rate: 0.00025, waiting index: 2/5
+Train Loss: 0.13071693282940444, Validation Loss: 0.9268936700761397
+Train Accuracy: 0.9656426104344664, Validation Accuracy: 0.7802037845705968
+Epoch 39/110
+
+Learning Rate: 0.00025, waiting index: 3/5
+Train Loss: 0.12219260064615832, Validation Loss: 0.6404741502474055
+Train Accuracy: 0.9654608253044901, Validation Accuracy: 0.8326055312954876
+Epoch 40/110
+
+Learning Rate: 0.00025, waiting index: 4/5
+Train Loss: 0.11873369248849884, Validation Loss: 0.7448442647256651
+Train Accuracy: 0.9670968914742774, Validation Accuracy: 0.8209606986899564
+Epoch 41/110
+
+Learning Rate: 0.000125, waiting index: 5/5
+Train Loss: 0.10188991439714486, Validation Loss: 0.5989482050120809
+Train Accuracy: 0.9716415197236866, Validation Accuracy: 0.8311499272197962
+Epoch 42/110
+
+Learning Rate: 0.000125, waiting index: 6/5
+Train Loss: 0.10569577671423161, Validation Loss: 0.6779698140348486
+Train Accuracy: 0.9710961643337575, Validation Accuracy: 0.8078602620087336
+Epoch 43/110
+
+Learning Rate: 0.000125, waiting index: 7/5
+Train Loss: 0.08168472578107454, Validation Loss: 0.5983584392700599
+Train Accuracy: 0.9780039992728595, Validation Accuracy: 0.8355167394468704
+Epoch 44/110
+
+Learning Rate: 0.000125, waiting index: 8/5
+Train Loss: 0.0920384701331148, Validation Loss: 0.6530684759003941
+Train Accuracy: 0.9743682966733321, Validation Accuracy: 0.826783114992722
+Epoch 45/110
+
+Learning Rate: 0.000125, waiting index: 9/5
+Train Loss: 0.08818958994820607, Validation Loss: 0.6851961761764288
+Train Accuracy: 0.9758225777131431, Validation Accuracy: 0.826783114992722
+Epoch 46/110
+
+Learning Rate: 0.000125, waiting index: 10/5
+Train Loss: 0.08850923258098649, Validation Loss: 0.692431595730236
+Train Accuracy: 0.9776404290129067, Validation Accuracy: 0.8020378457059679
+Epoch 47/110
+
+Learning Rate: 0.000125, waiting index: 11/5
+Train Loss: 0.09518175091008847, Validation Loss: 0.6197061356568002
+Train Accuracy: 0.9770950736229777, Validation Accuracy: 0.8296943231441049
+Epoch 48/110
+
+Learning Rate: 0.000125, waiting index: 12/5
+Train Loss: 0.07329069314403228, Validation Loss: 0.6163565790979869
+Train Accuracy: 0.9825486275222687, Validation Accuracy: 0.8471615720524017
+Epoch 49/110
+
+Learning Rate: 0.000125, waiting index: 13/5
+Train Loss: 0.07109709976808912, Validation Loss: 0.6180295336404303
+Train Accuracy: 0.9814579167424105, Validation Accuracy: 0.8311499272197962
+Epoch 50/110
+
+Learning Rate: 0.000125, waiting index: 14/5
+Train Loss: 0.05304209611224674, Validation Loss: 0.6640493568631727
+Train Accuracy: 0.9858207598618433, Validation Accuracy: 0.8282387190684134
+Epoch 51/110
+
+Learning Rate: 0.000125, waiting index: 15/5
+Train Loss: 0.07100744040663569, Validation Loss: 0.781086174859645
+Train Accuracy: 0.9801854208325759, Validation Accuracy: 0.7874818049490538
+Epoch 52/110
+
+Learning Rate: 0.000125, waiting index: 16/5
+Train Loss: 0.06293500372010742, Validation Loss: 0.6960124176874602
+Train Accuracy: 0.9840029085620796, Validation Accuracy: 0.8195050946142649
+Epoch 53/110
+
+Learning Rate: 0.000125, waiting index: 17/5
+Train Loss: 0.053525477631549676, Validation Loss: 0.583211623198385
+Train Accuracy: 0.984184693692056, Validation Accuracy: 0.8398835516739447
+Epoch 54/110
+
+Learning Rate: 0.000125, waiting index: 18/5
+Train Loss: 0.054118793223730755, Validation Loss: 0.5505113419648372
+Train Accuracy: 0.9880021814215597, Validation Accuracy: 0.8529839883551674
+Epoch 55/110
+
+Learning Rate: 0.000125, waiting index: 19/5
+Train Loss: 0.07234532262553396, Validation Loss: 0.654290373913899
+Train Accuracy: 0.9820032721323396, Validation Accuracy: 0.8296943231441049
+Epoch 56/110
+
+Learning Rate: 0.000125, waiting index: 20/5
+Train Loss: 0.07101471154262183, Validation Loss: 0.6922909242637423
+Train Accuracy: 0.9810943464824577, Validation Accuracy: 0.8078602620087336
+Epoch 57/110
+
+Learning Rate: 0.000125, waiting index: 21/5
+Train Loss: 0.0651739396884164, Validation Loss: 0.6456053248539518
+Train Accuracy: 0.9840029085620796, Validation Accuracy: 0.8296943231441049
+Epoch 58/110
+
+Learning Rate: 0.000125, waiting index: 22/5
+Train Loss: 0.04956750816653337, Validation Loss: 0.5954727701121502
+Train Accuracy: 0.9894564624613706, Validation Accuracy: 0.834061135371179
+Epoch 59/110
+
+Learning Rate: 0.000125, waiting index: 23/5
+Train Loss: 0.0544880856592027, Validation Loss: 0.6545613382485787
+Train Accuracy: 0.9856389747318669, Validation Accuracy: 0.8238719068413392
+Epoch 60/110
+
+Learning Rate: 0.000125, waiting index: 24/5
+Train Loss: 0.06282680048078648, Validation Loss: 0.7441194600194588
+Train Accuracy: 0.9823668423922923, Validation Accuracy: 0.8195050946142649
+Epoch 61/110
+
+Learning Rate: 0.000125, waiting index: 25/5
+Train Loss: 0.03716156061088425, Validation Loss: 0.5967046264403556
+Train Accuracy: 0.9918196691510635, Validation Accuracy: 0.8442503639010189
+Epoch 62/110
+
+Learning Rate: 0.000125, waiting index: 26/5
+Train Loss: 0.05360412100037359, Validation Loss: 0.6420678257517144
+Train Accuracy: 0.9850936193419378, Validation Accuracy: 0.8355167394468704
+Epoch 63/110
+
+Learning Rate: 0.000125, waiting index: 27/5
+Train Loss: 0.055420610538565826, Validation Loss: 0.7601939608091983
+Train Accuracy: 0.9870932557716778, Validation Accuracy: 0.8107714701601164
+Epoch 64/110
+
+Learning Rate: 0.000125, waiting index: 28/5
+Train Loss: 0.04654612644703189, Validation Loss: 0.5861652533693108
+Train Accuracy: 0.9881839665515361, Validation Accuracy: 0.8529839883551674
+Epoch 65/110
+
+Learning Rate: 0.000125, waiting index: 29/5
+Train Loss: 0.039219186380637615, Validation Loss: 0.7789778935962065
+Train Accuracy: 0.9921832394110162, Validation Accuracy: 0.8253275109170306
+Epoch 66/110
+
+Learning Rate: 0.000125, waiting index: 30/5
+Train Loss: 0.05336174266843089, Validation Loss: 0.7708169111293663
+Train Accuracy: 0.9847300490819851, Validation Accuracy: 0.8049490538573508
+Epoch 67/110
+
+Learning Rate: 0.000125, waiting index: 31/5
+Train Loss: 0.05307944255936542, Validation Loss: 0.5888089585446569
+Train Accuracy: 0.9872750409016543, Validation Accuracy: 0.834061135371179
+Epoch 68/110
+
+Learning Rate: 0.000125, waiting index: 32/5
+Train Loss: 0.0410717575639126, Validation Loss: 0.7004268212519109
+Train Accuracy: 0.9907289583712052, Validation Accuracy: 0.8296943231441049
+Epoch 69/110
+
+Learning Rate: 0.000125, waiting index: 33/5
+Train Loss: 0.05373309426670732, Validation Loss: 0.5864192389178721
+Train Accuracy: 0.9856389747318669, Validation Accuracy: 0.8398835516739447
+Epoch 70/110
+
+Learning Rate: 0.000125, waiting index: 34/5
+Train Loss: 0.049758979412007104, Validation Loss: 0.9640654633023754
+Train Accuracy: 0.9867296855117251, Validation Accuracy: 0.784570596797671
+Epoch 71/110
+
+Learning Rate: 0.000125, waiting index: 35/5
+Train Loss: 0.046923600188552975, Validation Loss: 0.6632030966247151
+Train Accuracy: 0.9903653881112525, Validation Accuracy: 0.8296943231441049
+Epoch 72/110
+
+Learning Rate: 0.000125, waiting index: 36/5
+Train Loss: 0.04217016355894516, Validation Loss: 0.8079653831271338
+Train Accuracy: 0.9916378840210871, Validation Accuracy: 0.7962154294032023
+Epoch 73/110
+
+Learning Rate: 0.000125, waiting index: 37/5
+Train Loss: 0.04396593216655126, Validation Loss: 0.5913197419633601
+Train Accuracy: 0.9892746773313943, Validation Accuracy: 0.8413391557496361
+Epoch 74/110
+
+Learning Rate: 0.000125, waiting index: 38/5
+Train Loss: 0.04566196324497172, Validation Loss: 0.5762680150152305
+Train Accuracy: 0.9901836029812762, Validation Accuracy: 0.8471615720524017
+Epoch 75/110
+
+Learning Rate: 0.000125, waiting index: 39/5
+Train Loss: 0.042151795214291805, Validation Loss: 0.798093099921256
+Train Accuracy: 0.9912743137611343, Validation Accuracy: 0.8282387190684134
+Epoch 76/110
+
+Learning Rate: 0.000125, waiting index: 40/5
+Train Loss: 0.041292397196001196, Validation Loss: 0.6880214851940205
+Train Accuracy: 0.9909107435011816, Validation Accuracy: 0.8311499272197962
+Epoch 77/110
+
+Learning Rate: 0.000125, waiting index: 41/5
+Train Loss: 0.04609142488631662, Validation Loss: 0.6539414298499869
+Train Accuracy: 0.9900018178512998, Validation Accuracy: 0.8413391557496361
+Epoch 78/110
+
+Learning Rate: 0.000125, waiting index: 42/5
+Train Loss: 0.03016478054773894, Validation Loss: 0.7378304781933793
+Train Accuracy: 0.9940010907107799, Validation Accuracy: 0.784570596797671
+Epoch 79/110
+
+Learning Rate: 0.000125, waiting index: 43/5
+Train Loss: 0.036877365399570976, Validation Loss: 0.6277075932931231
+Train Accuracy: 0.9912743137611343, Validation Accuracy: 0.8326055312954876
+Epoch 80/110
+
+Learning Rate: 0.000125, waiting index: 44/5
+Train Loss: 0.03528549038524706, Validation Loss: 0.7397222404935556
+Train Accuracy: 0.9916378840210871, Validation Accuracy: 0.8311499272197962
+Epoch 81/110
+
+Learning Rate: 0.000125, waiting index: 45/5
+Train Loss: 0.04202407525715274, Validation Loss: 0.7426305130506891
+Train Accuracy: 0.9901836029812762, Validation Accuracy: 0.8224163027656477
+Epoch 82/110
+
+Learning Rate: 0.000125, waiting index: 46/5
+Train Loss: 0.046210812486439316, Validation Loss: 0.7097343345884158
+Train Accuracy: 0.9880021814215597, Validation Accuracy: 0.8136826783114993
+Epoch 83/110
+
+Learning Rate: 0.000125, waiting index: 47/5
+Train Loss: 0.03753943683439807, Validation Loss: 0.5696564971894589
+Train Accuracy: 0.9900018178512998, Validation Accuracy: 0.8617176128093159
+Epoch 84/110
+
+Learning Rate: 0.000125, waiting index: 48/5
+Train Loss: 0.04059961365097769, Validation Loss: 0.6567027327159181
+Train Accuracy: 0.9909107435011816, Validation Accuracy: 0.8326055312954876
+Epoch 85/110
+
+Learning Rate: 0.000125, waiting index: 49/5
+Train Loss: 0.03741854155189656, Validation Loss: 0.6362338517940795
+Train Accuracy: 0.9910925286311579, Validation Accuracy: 0.8486171761280932
+Epoch 86/110
+
+Learning Rate: 0.000125, waiting index: 0/5
+Train Loss: 0.03234217313400249, Validation Loss: 0.52526440105554
+Train Accuracy: 0.9929103799309217, Validation Accuracy: 0.8457059679767104
+Epoch 87/110
+
+Learning Rate: 0.000125, waiting index: 1/5
+Train Loss: 0.0420506694607962, Validation Loss: 0.569306898412015
+Train Accuracy: 0.9894564624613706, Validation Accuracy: 0.8471615720524017
+Epoch 88/110
+
+Learning Rate: 0.000125, waiting index: 2/5
+Train Loss: 0.03271470807778301, Validation Loss: 0.6080235215335849
+Train Accuracy: 0.9929103799309217, Validation Accuracy: 0.834061135371179
+Epoch 89/110
+
+Learning Rate: 0.000125, waiting index: 3/5
+Train Loss: 0.03489905169476287, Validation Loss: 0.5379926850360932
+Train Accuracy: 0.993092165060898, Validation Accuracy: 0.8529839883551674
+Epoch 90/110
+
+Learning Rate: 0.000125, waiting index: 4/5
+Train Loss: 0.03531837315604882, Validation Loss: 0.6481933590009289
+Train Accuracy: 0.9918196691510635, Validation Accuracy: 0.8384279475982532
+Epoch 91/110
+
+Learning Rate: 6.25e-05, waiting index: 5/5
+Train Loss: 0.027990739137032306, Validation Loss: 0.5349859653732226
+Train Accuracy: 0.9943646609707326, Validation Accuracy: 0.8558951965065502
+Epoch 92/110
+
+Learning Rate: 6.25e-05, waiting index: 6/5
+Train Loss: 0.040356250600348836, Validation Loss: 0.8540390473989999
+Train Accuracy: 0.9912743137611343, Validation Accuracy: 0.8034934497816594
+Epoch 93/110
+
+Learning Rate: 6.25e-05, waiting index: 7/5
+Train Loss: 0.044383143721030874, Validation Loss: 0.6918240313218592
+Train Accuracy: 0.9889111070714416, Validation Accuracy: 0.8326055312954876
+Epoch 94/110
+
+Learning Rate: 6.25e-05, waiting index: 8/5
+Train Loss: 0.03631609386258766, Validation Loss: 0.5860114379113983
+Train Accuracy: 0.9920014542810398, Validation Accuracy: 0.851528384279476
+Epoch 95/110
+
+Learning Rate: 6.25e-05, waiting index: 9/5
+Train Loss: 0.030775636971301427, Validation Loss: 0.602515559983094
+Train Accuracy: 0.9934557353208507, Validation Accuracy: 0.8326055312954876
+Epoch 96/110
+
+Learning Rate: 6.25e-05, waiting index: 10/5
+Train Loss: 0.024268109068251897, Validation Loss: 0.6233115478356832
+Train Accuracy: 0.9961825122704963, Validation Accuracy: 0.8369723435225619
+Epoch 97/110
+
+Learning Rate: 6.25e-05, waiting index: 11/5
+Train Loss: 0.046471246991834254, Validation Loss: 0.9386720139634276
+Train Accuracy: 0.9894564624613706, Validation Accuracy: 0.7685589519650655
+Epoch 98/110
+
+Learning Rate: 6.25e-05, waiting index: 12/5
+Train Loss: 0.024136177840040515, Validation Loss: 0.6005863377679034
+Train Accuracy: 0.9956371568805672, Validation Accuracy: 0.8486171761280932
+Epoch 99/110
+
+Learning Rate: 6.25e-05, waiting index: 13/5
+Train Loss: 0.02527283549593223, Validation Loss: 0.623790959766969
+Train Accuracy: 0.9947282312306853, Validation Accuracy: 0.8413391557496361
+Epoch 100/110
+
+Learning Rate: 6.25e-05, waiting index: 14/5
+Train Loss: 0.03261552477171914, Validation Loss: 0.5897401072532009
+Train Accuracy: 0.993092165060898, Validation Accuracy: 0.8631732168850073
+Epoch 101/110
+
+Learning Rate: 6.25e-05, waiting index: 15/5
+Train Loss: 0.02845467834222689, Validation Loss: 0.6203922161235886
+Train Accuracy: 0.9936375204508271, Validation Accuracy: 0.8413391557496361
+Epoch 102/110
+
+Learning Rate: 6.25e-05, waiting index: 16/5
+Train Loss: 0.03143323478216361, Validation Loss: 0.6314803859230351
+Train Accuracy: 0.9936375204508271, Validation Accuracy: 0.826783114992722
+Epoch 103/110
+
+Learning Rate: 6.25e-05, waiting index: 17/5
+Train Loss: 0.028901574182211273, Validation Loss: 0.5738007576141121
+Train Accuracy: 0.9947282312306853, Validation Accuracy: 0.8544395924308588
+Epoch 104/110
+
+Learning Rate: 6.25e-05, waiting index: 18/5
+Train Loss: 0.02230057348224003, Validation Loss: 0.547113327137747
+Train Accuracy: 0.9963642974004726, Validation Accuracy: 0.858806404657933
+Epoch 105/110
+
+Learning Rate: 6.25e-05, waiting index: 19/5
+Train Loss: 0.030846491571822825, Validation Loss: 0.8196834091368583
+Train Accuracy: 0.9936375204508271, Validation Accuracy: 0.8005822416302766
+Epoch 106/110
+
+Learning Rate: 6.25e-05, waiting index: 20/5
+Train Loss: 0.02769369435781011, Validation Loss: 0.5781105972832072
+Train Accuracy: 0.9952735866206144, Validation Accuracy: 0.8529839883551674
+Epoch 107/110
+
+Learning Rate: 6.25e-05, waiting index: 21/5
+Train Loss: 0.03173632228111837, Validation Loss: 0.5994051591733137
+Train Accuracy: 0.993092165060898, Validation Accuracy: 0.8369723435225619
+Epoch 108/110
+
+Learning Rate: 6.25e-05, waiting index: 22/5
+Train Loss: 0.030829432119140996, Validation Loss: 0.6374609235194078
+Train Accuracy: 0.9920014542810398, Validation Accuracy: 0.8238719068413392
+Epoch 109/110
+
+Learning Rate: 6.25e-05, waiting index: 23/5
+Train Loss: 0.03012954319376792, Validation Loss: 0.7460052822648753
+Train Accuracy: 0.9941828758407563, Validation Accuracy: 0.8107714701601164
+Epoch 110/110
+
+Learning Rate: 6.25e-05, waiting index: 24/5
+Train Loss: 0.025381593218775127, Validation Loss: 0.7030625292255911
+Train Accuracy: 0.9952735866206144, Validation Accuracy: 0.8224163027656477
