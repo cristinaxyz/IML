@@ -1,3 +1,5 @@
+import sys
+
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
@@ -20,7 +22,8 @@ def main():
     class_names = list(datamodel.dataset.classes)
 
     model = CNN(num_classes=num_classes)
-    state = torch.load("best.pth", map_location=device)
+    state_dir = sys.argv[1] if len(sys.argv) > 1 else "best.pth"
+    state = torch.load(state_dir, map_location=device)
     model.load_state_dict(state)
     model = model.to(device)
     model.eval()
@@ -39,25 +42,10 @@ def main():
     preds = np.concatenate(all_preds)
     labels = np.concatenate(all_labels)
 
-    accuracy = (preds == labels).sum() / labels.shape[0]
-
     # Confusion matrix
     cm = np.zeros((num_classes, num_classes), dtype=int)
     for t, p in zip(labels, preds):
         cm[int(t), int(p)] += 1
-
-    print(f"Accuracy: {accuracy:.4f}")
-    print("Confusion matrix (rows=true, columns=predicted):")
-    print(cm)
-
-    print("Per-class accuracy:")
-    for i, name in enumerate(class_names):
-        total = cm[i].sum()
-        correct = int(cm[i, i])
-        acc = correct / total if total > 0 else 0.0
-        print(f"  {name}: {acc:.4f} ({correct}/{total})")
-
-    # normalize rows to percentages for accurate color mapping
     cm_pct = np.zeros_like(cm, dtype=float)
     for i in range(cm.shape[0]):
         row_total = cm[i].sum()
@@ -77,29 +65,55 @@ def main():
     ax.set_yticklabels(class_names, fontsize=8)
 
     # overlay percentages per true class on the cells
-    try:
-        for i in range(cm.shape[0]):
-            row_total = cm[i].sum()
-            for j in range(cm.shape[1]):
-                val = cm[i, j]
-                pct = (val / row_total * 100.0) if row_total > 0 else 0.0
-                color = "white" if pct > 50.0 else "black"
-                ax.text(
-                    j,
-                    i,
-                    f"{pct:.1f}%",
-                    ha="center",
-                    va="center",
-                    color=color,
-                    fontsize=7,
-                )
-    except Exception:
-        pass
+    for i in range(cm.shape[0]):
+        row_total = cm[i].sum()
+        for j in range(cm.shape[1]):
+            val = cm[i, j]
+            pct = (val / row_total * 100.0) if row_total > 0 else 0.0
+            color = "white" if pct > 50.0 else "black"
+            ax.text(
+                j,
+                i,
+                f"{pct:.1f}%",
+                ha="center",
+                va="center",
+                color=color,
+                fontsize=7,
+            )
+
+    accuracies = []
+    precisions = []
+    recalls = []
+    f1s = []
+    print("Metrics per class (accuracy precision recall f1):")
+    for i, name in enumerate(class_names):
+        tp = int(cm[i, i])
+        predicted = cm[:, i].sum()
+        actual = cm[i].sum()
+        precision = tp / predicted if predicted > 0 else 0.0
+        recall = tp / actual if actual > 0 else 0.0
+        f1 = (
+            2 * precision * recall / (precision + recall)
+            if (precision + recall) > 0
+            else 0.0
+        )
+        accuracies.append(tp / actual if actual > 0 else 0.0)
+        precisions.append(precision)
+        recalls.append(recall)
+        f1s.append(f1)
+        print(
+            f"{name}: {accuracies[i]:.4f} {precisions[i]:.4f} {recalls[i]:.4f} {f1s[i]:.4f}"
+        )
+
+    mean_acc = np.mean(accuracies)
+    mean_p = np.mean(precisions)
+    mean_r = np.mean(recalls)
+    mean_f1 = np.mean(f1s)
+    print(f"Average: {mean_acc:.4f} {mean_p:.4f} {mean_r:.4f} {mean_f1:.4f}")
 
     plt.tight_layout()
     plt.savefig("confusion_matrix.png")
     plt.close(fig)
-    print("Saved confusion_matrix.png")
 
 
 if __name__ == "__main__":
