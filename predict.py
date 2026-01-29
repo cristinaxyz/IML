@@ -10,7 +10,7 @@ import torchvision.transforms as T
 from PIL import Image
 
 from model import CNN
-from processing import IMAGE_SIZE, PreprocessingData
+from processing import IMAGE_SIZE, PreprocessingData, mean, std
 
 
 def load_image(path: pathlib.Path, transform) -> torch.Tensor:
@@ -58,7 +58,7 @@ def main():
     )
 
     # get class names from dataset (keeps consistent ordering)
-    datamodel = PreprocessingData(3404, transform=True)
+    datamodel = PreprocessingData(3404)
     class_names = list(datamodel.dataset.classes)
     num_classes = len(class_names)
 
@@ -73,7 +73,7 @@ def main():
         [
             T.Resize(IMAGE_SIZE),
             T.ToTensor(),
-            T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+            T.Normalize(mean, std),
         ]
     )
 

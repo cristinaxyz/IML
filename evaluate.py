@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-
-from model import CNN
+from sklearn.metrics import roc_curve, auc
+from model import CNN, ConvolutionBlockGroupNorm
 from processing import PreprocessingData
 
 
@@ -10,7 +10,7 @@ def main():
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
 
-    datamodel = PreprocessingData(3404, transform=True)
+    datamodel = PreprocessingData(3404)
     train_loader, val_loader, test_loader = datamodel.split_data()
 
     loader = val_loader
@@ -19,25 +19,29 @@ def main():
     num_classes = len(datamodel.dataset.classes)
     class_names = list(datamodel.dataset.classes)
 
-    model = CNN(num_classes=num_classes)
+    model = CNN(num_classes=num_classes, conv_block=ConvolutionBlockGroupNorm)
     state = torch.load("best.pth", map_location=device)
     model.load_state_dict(state)
     model = model.to(device)
     model.eval()
 
     all_preds = []
+    all_probs = []
     all_labels = []
 
     with torch.no_grad():
         for images, labels in loader:
             images = images.to(device)
             outputs = model(images)
+            probs = torch.softmax(outputs, dim=1)
             _, preds = torch.max(outputs, 1)
             all_preds.append(preds.cpu().numpy())
             all_labels.append(labels.cpu().numpy())
+            all_probs.append(probs.cpu().numpy())
 
     preds = np.concatenate(all_preds)
     labels = np.concatenate(all_labels)
+    probs = np.concatenate(all_probs)
 
     accuracy = (preds == labels).sum() / labels.shape[0]
 
@@ -100,6 +104,36 @@ def main():
     plt.savefig("confusion_matrix.png")
     plt.close(fig)
     print("Saved confusion_matrix.png")
+
+    # roc curve 
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+    plt.figure(figsize=(8, 6))
+    colors = plt.cm.tab20(np.linspace(0, 1, num_classes))
+
+    for i in range(num_classes):
+        binary_labels = (labels == i).astype(int)
+        class_probs = probs[:, i]
+                
+        fpr[i], tpr[i], _ = roc_curve(binary_labels, class_probs)
+        roc_auc[i] = auc(fpr[i], tpr[i])
+        plt.plot(
+            fpr[i],
+            tpr[i],
+            color=colors[i],
+            lw=2,
+            label=f"Class {class_names[i]} (AUC = {roc_auc[i]:.2f})",
+        )
+    plt.plot([0, 1], [0, 1], "k--", lw=2, label="Random Guessing")
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("ROC Curve per class")
+    plt.legend(loc="lower right", fontsize='small')
+    plt.tight_layout()
+    plt.savefig("roc_curve.png")
+    plt.close()
+    print("Saved roc_curve.png")
 
 
 if __name__ == "__main__":

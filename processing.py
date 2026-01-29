@@ -4,14 +4,13 @@ import torch
 import torchvision
 import torchvision.transforms as T
 from torch.utils.data import Dataset
-from torchvision.transforms import ToPILImage
 
-BATCH_SIZE = 4
+BATCH_SIZE = 12
 IMAGE_SIZE = (256, 256)
 DATA_DIR = pathlib.Path("dataset")
 
 
-class TransformSubset(torch.utils.data.Dataset):
+class TransformSubset(Dataset):
     """Apply transforms to a Subset without creating separate ImageFolder objects"""
     def __init__(self, subset, transform):
         self.subset = subset
@@ -48,12 +47,17 @@ def compute_mean_std():
 
     return mean.tolist(), std.tolist()
 
-mean, std = compute_mean_std()
+# Precomputed mean and std for the dataset
+# gotten by running compute_mean_std()
+mean = [0.5169, 0.5253, 0.5061]
+std = [0.2330, 0.2237, 0.2404]
+
 class PreprocessingData:
     def __init__(self, seed):
         self.data_dir = DATA_DIR
         self.batch_size = BATCH_SIZE
         self.generator = torch.Generator().manual_seed(seed)
+        self.dataset = torchvision.datasets.ImageFolder(self.data_dir)
        
     def _transform(self, train=True):
         if train:
@@ -76,8 +80,7 @@ class PreprocessingData:
             )
 
     def split_data(self):
-        # Single directory scan instead of 3
-        dataset = torchvision.datasets.ImageFolder(self.data_dir)
+        dataset = self.dataset
         n = len(dataset)
         train_len = int(0.8 * n)
         val_len = int(0.1 * n)
