@@ -1,5 +1,5 @@
 import pathlib
-
+import numpy as np
 import torch
 import torchvision
 import torchvision.transforms as T
@@ -11,22 +11,50 @@ IMAGE_SIZE = (256, 256)
 DATA_DIR = pathlib.Path("dataset")
 
 
-class PreprocessingData(Dataset):
-    def __init__(self, seed, transform=True):
-        self.data_dir = DATA_DIR
+class TransformSubset(torch.utils.data.Dataset):
+    """Apply transforms to a Subset without creating separate ImageFolder objects"""
+    def __init__(self, subset, transform):
+        self.subset = subset
         self.transform = transform
-        self.batch_size = BATCH_SIZE
-        self.generator = torch.Generator().manual_seed(seed)
-        self.dataset = torchvision.datasets.ImageFolder(
-            self.data_dir, transform=self._transform(train=True)
-        )
 
     def __len__(self):
-        return len(self.dataset)
+        return len(self.subset)
 
     def __getitem__(self, idx):
-        return self.dataset[idx]
+        img, label = self.subset[idx]
+        return self.transform(img), label
 
+def compute_mean_std():
+    loader = torch.utils.data.DataLoader(
+        torchvision.datasets.ImageFolder(
+            DATA_DIR, transform=T.Compose([T.Resize(IMAGE_SIZE), T.ToTensor()])
+        ),
+        batch_size=BATCH_SIZE,
+        shuffle=False,
+    )
+    
+    mean = torch.zeros(3)
+    std = torch.zeros(3)
+    total = 0
+
+    for images, _ in loader:
+        batch_size = images.size(0)
+        mean += images.mean(dim=[0, 2, 3]) * batch_size
+        std += images.std(dim=[0, 2, 3]) * batch_size
+        total += batch_size
+
+    mean = mean / total
+    std = std / total
+
+    return mean.tolist(), std.tolist()
+
+mean, std = compute_mean_std()
+class PreprocessingData:
+    def __init__(self, seed):
+        self.data_dir = DATA_DIR
+        self.batch_size = BATCH_SIZE
+        self.generator = torch.Generator().manual_seed(seed)
+       
     def _transform(self, train=True):
         if train:
             return T.Compose(
@@ -35,7 +63,7 @@ class PreprocessingData(Dataset):
                     T.RandomHorizontalFlip(),
                     T.RandomRotation(10),
                     T.ToTensor(),
-                    T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+                    T.Normalize(mean, std),
                 ]
             )
         else:
@@ -43,25 +71,35 @@ class PreprocessingData(Dataset):
                 [
                     T.Resize(IMAGE_SIZE),
                     T.ToTensor(),
-                    T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+                    T.Normalize(mean, std),
                 ]
             )
 
     def split_data(self):
-        dataset = self.dataset
+        # Single directory scan instead of 3
+        dataset = torchvision.datasets.ImageFolder(self.data_dir)
         n = len(dataset)
         train_len = int(0.8 * n)
         val_len = int(0.1 * n)
         test_len = n - train_len - val_len
 
-        train_ds, val_ds, test_ds = torch.utils.data.random_split(
-            dataset, [train_len, val_len, test_len], self.generator
+        indices = torch.randperm(n, generator=self.generator).tolist()
+        train_idx = indices[:train_len]
+        val_idx = indices[train_len : train_len + val_len]
+        test_idx = indices[train_len + val_len :]
+        
+        train_ds = TransformSubset(
+            torch.utils.data.Subset(dataset, train_idx),
+            self._transform(train=True)
         )
-
-        # validation and test data shouldnt get tranfsomerd
-        train_ds.dataset.transform = self._transform(train=True)
-        val_ds.dataset.transform = self._transform(train=False)
-        test_ds.dataset.transform = self._transform(train=False)
+        val_ds = TransformSubset(
+            torch.utils.data.Subset(dataset, val_idx),
+            self._transform(train=False)
+        )
+        test_ds = TransformSubset(
+            torch.utils.data.Subset(dataset, test_idx),
+            self._transform(train=False)
+        )
 
         train_loader = torch.utils.data.DataLoader(
             train_ds,
@@ -69,9 +107,11 @@ class PreprocessingData(Dataset):
             shuffle=True,
             generator=self.generator,
         )
+
         val_loader = torch.utils.data.DataLoader(
             val_ds, batch_size=self.batch_size, shuffle=False
         )
+
         test_loader = torch.utils.data.DataLoader(
             test_ds, batch_size=self.batch_size, shuffle=False
         )
@@ -79,10 +119,4 @@ class PreprocessingData(Dataset):
         return train_loader, val_loader, test_loader
 
 
-datamodel = PreprocessingData(3404, transform=True)
-train_loader, val_loader, test_loader = datamodel.split_data()
 
-" if you want to see the images"
-# for images, labels in train_loader:
-#    image = ToPILImage()(images[0])
-#    image.save("sample_image.png")

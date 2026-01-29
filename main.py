@@ -8,13 +8,13 @@ from training import train_one_epoch, validate_one_epoch
 
 
 def main():
-    datamodel = PreprocessingData(3404, transform=True)
+    datamodel = PreprocessingData(3404)
     train_loader, val_loader, test_loader = datamodel.split_data()
 
     model = CNN(num_classes=11, conv_block=ConvolutionBlockGroupNorm)
     criteria = nn.CrossEntropyLoss()
 
-    learning_rate = 0.001 / 4
+    learning_rate = 0.001 
 
     optimizer = optim.SGD(
         model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=5e-4
