@@ -15,7 +15,7 @@ def main():
 
     criteria = nn.CrossEntropyLoss()
 
-    learning_rate = 0.001
+    learning_rate = 0.001 / 4
 
     optimizer = optim.SGD(
         model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=5e-4
