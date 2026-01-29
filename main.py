@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
-from model import CNN
+from model import CNN, ConvolutionBlockGroupNorm
 from processing import PreprocessingData
 from training import train_one_epoch, validate_one_epoch
 
@@ -11,8 +11,7 @@ def main():
     datamodel = PreprocessingData(3404, transform=True)
     train_loader, val_loader, test_loader = datamodel.split_data()
 
-    model = CNN(num_classes=11)
-
+    model = CNN(num_classes=11, conv_block=ConvolutionBlockGroupNorm)
     criteria = nn.CrossEntropyLoss()
 
     learning_rate = 0.001 / 4

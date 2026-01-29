@@ -46,34 +46,44 @@ class ConvolutionBlock(nn.Module):
         return x
 
 
+class ConvolutionBlockGroupNorm(ConvolutionBlock):
+    def __init__(
+        self, in_channels: int, out_channels: int, dilation=1, se_module=True
+    ) -> None:
+        super().__init__(in_channels, out_channels, dilation, se_module)
+        self.bn = nn.GroupNorm(32, out_channels)
+
+
 class CNN(nn.Module):
-    def __init__(self, num_classes: int) -> None:
+    def __init__(
+        self, num_classes: int, conv_block: type = ConvolutionBlock
+    ) -> None:
         super().__init__()
         self.network = nn.Sequential(
             # 224x224x64
-            ConvolutionBlock(3, 64, dilation=2, se_module=False),
-            ConvolutionBlock(64, 64),
+            conv_block(3, 64, dilation=2, se_module=False),
+            conv_block(64, 64),
             # 112x112x128
             nn.MaxPool2d(2, 2),
-            ConvolutionBlock(64, 128),
-            ConvolutionBlock(128, 128),
+            conv_block(64, 128),
+            conv_block(128, 128),
             # 56x56x256
             nn.MaxPool2d(2, 2),
-            ConvolutionBlock(128, 256),
-            ConvolutionBlock(256, 256),
-            ConvolutionBlock(256, 256),
+            conv_block(128, 256),
+            conv_block(256, 256),
+            conv_block(256, 256),
             # 28x28x512
             nn.MaxPool2d(2, 2),
-            ConvolutionBlock(256, 512),
-            ConvolutionBlock(512, 512),
-            ConvolutionBlock(512, 512),
+            conv_block(256, 512),
+            conv_block(512, 512),
+            conv_block(512, 512),
             # 14x14x1024
             nn.MaxPool2d(2, 2),
-            ConvolutionBlock(512, 1024),
-            ConvolutionBlock(1024, 1024),
+            conv_block(512, 1024),
+            conv_block(1024, 1024),
             # 7x7x1024
             nn.MaxPool2d(2, 2),
-            ConvolutionBlock(1024, 1024, dilation=2, se_module=False),
+            conv_block(1024, 1024, dilation=2, se_module=False),
         )
         # 1x1x1024
         self.gap = nn.AdaptiveAvgPool2d(1)
