@@ -524,6 +524,3 @@ Epoch 105/110
 Learning Rate: 1.52587890625e-08, waiting index: 4/5
 Train Loss: 0.034411709420835435, Validation Loss: 0.6495749075979054
 Train Accuracy: 0.9920014542810398, Validation Accuracy: 0.8326055312954876
-Epoch 106/110
-
- 56%|█████▌    | 770/1376 [03:21<02:33,  3.95it/s]
