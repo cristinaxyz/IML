@@ -37,7 +37,7 @@ def main():
     datamodel = PreprocessingData(3404)
     train_loader, val_loader, test_loader = datamodel.split_data()
 
-    model = CNN(num_classes=11, conv_block=ConvolutionBlockGroupNorm)
+    model = CNN(num_classes=11)
     criteria = nn.CrossEntropyLoss()
 
     learning_rate = 0.001 

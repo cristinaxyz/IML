@@ -5,7 +5,7 @@ import torchvision
 import torchvision.transforms as T
 from torch.utils.data import Dataset
 
-BATCH_SIZE = 12
+BATCH_SIZE = 4
 IMAGE_SIZE = (256, 256)
 DATA_DIR = pathlib.Path("dataset")
 
@@ -109,14 +109,15 @@ class PreprocessingData:
             batch_size=self.batch_size,
             shuffle=True,
             generator=self.generator,
+            num_workers=4,
         )
 
         val_loader = torch.utils.data.DataLoader(
-            val_ds, batch_size=self.batch_size, shuffle=False
+            val_ds, batch_size=self.batch_size, shuffle=False, num_workers=4
         )
 
         test_loader = torch.utils.data.DataLoader(
-            test_ds, batch_size=self.batch_size, shuffle=False
+            test_ds, batch_size=self.batch_size, shuffle=False, num_workers=4
         )
 
         return train_loader, val_loader, test_loader
