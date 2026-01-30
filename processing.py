@@ -1,4 +1,5 @@
 import pathlib
+
 import numpy as np
 import torch
 import torchvision
@@ -12,6 +13,7 @@ DATA_DIR = pathlib.Path("dataset")
 
 class TransformSubset(Dataset):
     """Apply transforms to a Subset without creating separate ImageFolder objects"""
+
     def __init__(self, subset, transform):
         self.subset = subset
         self.transform = transform
@@ -23,6 +25,7 @@ class TransformSubset(Dataset):
         img, label = self.subset[idx]
         return self.transform(img), label
 
+
 def compute_mean_std():
     loader = torch.utils.data.DataLoader(
         torchvision.datasets.ImageFolder(
@@ -31,7 +34,7 @@ def compute_mean_std():
         batch_size=BATCH_SIZE,
         shuffle=False,
     )
-    
+
     mean = torch.zeros(3)
     std = torch.zeros(3)
     total = 0
@@ -47,10 +50,12 @@ def compute_mean_std():
 
     return mean.tolist(), std.tolist()
 
+
 # Precomputed mean and std for the dataset
 # gotten by running compute_mean_std()
 mean = [0.5169, 0.5253, 0.5061]
 std = [0.2330, 0.2237, 0.2404]
+
 
 class PreprocessingData:
     def __init__(self, seed):
@@ -58,7 +63,7 @@ class PreprocessingData:
         self.batch_size = BATCH_SIZE
         self.generator = torch.Generator().manual_seed(seed)
         self.dataset = torchvision.datasets.ImageFolder(self.data_dir)
-       
+
     def _transform(self, train=True):
         if train:
             return T.Compose(
@@ -90,18 +95,18 @@ class PreprocessingData:
         train_idx = indices[:train_len]
         val_idx = indices[train_len : train_len + val_len]
         test_idx = indices[train_len + val_len :]
-        
+
         train_ds = TransformSubset(
             torch.utils.data.Subset(dataset, train_idx),
-            self._transform(train=True)
+            self._transform(train=True),
         )
         val_ds = TransformSubset(
             torch.utils.data.Subset(dataset, val_idx),
-            self._transform(train=False)
+            self._transform(train=False),
         )
         test_ds = TransformSubset(
             torch.utils.data.Subset(dataset, test_idx),
-            self._transform(train=False)
+            self._transform(train=False),
         )
 
         train_loader = torch.utils.data.DataLoader(
@@ -121,6 +126,3 @@ class PreprocessingData:
         )
 
         return train_loader, val_loader, test_loader
-
-
-
