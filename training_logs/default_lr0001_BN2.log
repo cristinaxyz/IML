@@ -57881,3 +57881,6 @@ Epoch 42/110
 100%|█████████▉| 1375/1376 [05:34<00:00,  4.17it/s]
 100%|██████████| 1376/1376 [05:34<00:00,  4.12it/s]
 Early stopping triggered at epoch 41
+
+Best validation accuracy: 0.a8617 in epoch 41 
+Best validation loss: 0.a4399 in epoch 41 
