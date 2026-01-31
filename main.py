@@ -5,7 +5,7 @@ import torch.optim as optim
 from model import CNN, ConvolutionBlockGroupNorm
 from processing import PreprocessingData
 from training import train_one_epoch, validate_one_epoch
-
+# https://stackoverflow.com/questions/71998978/early-stopping-in-pytorch
 # Early stopping utility gotten form stackoverflow and slightly modified for our purposes 
 class EarlyStopper:
     def __init__(self, patience: int = 10, min_delta: float = 0.0, max_overfit: float = 0.65):
@@ -56,7 +56,7 @@ def main():
     print(f"Using device: {device}")
     model = model.to(device)
 
-    early_stop = EarlyStopper(patience=7, min_delta=0.001, max_overfit=0.65)
+    early_stop = EarlyStopper(patience=10, min_delta=0.001, max_overfit=0.65)
     for epoch in range(epochs):
         print(f"Epoch {epoch + 1}/{epochs}")
         train_loss, train_acc = train_one_epoch(
