@@ -3,7 +3,8 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from sklearn.metrics import roc_curve, auc
+from sklearn.metrics import auc, roc_curve
+
 from model import CNN, ConvolutionBlockGroupNorm
 from processing import PreprocessingData
 
@@ -15,8 +16,8 @@ def main():
     datamodel = PreprocessingData(3404)
     train_loader, val_loader, test_loader = datamodel.split_data()
 
-    loader = val_loader
-    # loader = test_loader
+    # loader = val_loader
+    loader = test_loader
 
     num_classes = len(datamodel.dataset.classes)
     class_names = list(datamodel.dataset.classes)
@@ -121,7 +122,7 @@ def main():
     plt.savefig("confusion_matrix.png")
     plt.close(fig)
 
-    # roc curve 
+    # roc curve
     fpr = dict()
     tpr = dict()
     roc_auc = dict()
@@ -131,7 +132,7 @@ def main():
     for i in range(num_classes):
         binary_labels = (labels == i).astype(int)
         class_probs = probs[:, i]
-                
+
         fpr[i], tpr[i], _ = roc_curve(binary_labels, class_probs)
         roc_auc[i] = auc(fpr[i], tpr[i])
         plt.plot(
@@ -145,7 +146,7 @@ def main():
     plt.xlabel("False Positive Rate")
     plt.ylabel("True Positive Rate")
     plt.title("ROC Curve per class")
-    plt.legend(loc="lower right", fontsize='small')
+    plt.legend(loc="lower right", fontsize="small")
     plt.tight_layout()
     plt.savefig("roc_curve.png")
     plt.close()

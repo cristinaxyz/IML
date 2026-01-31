@@ -5,23 +5,32 @@ import torch.optim as optim
 from model import CNN, ConvolutionBlockGroupNorm
 from processing import PreprocessingData
 from training import train_one_epoch, validate_one_epoch
+
+
 # https://stackoverflow.com/questions/71998978/early-stopping-in-pytorch
-# Early stopping utility gotten form stackoverflow and slightly modified for our purposes 
+# Early stopping utility gotten form stackoverflow and slightly modified for our purposes
 class EarlyStopper:
-    def __init__(self, patience: int = 10, min_delta: float = 0.0, max_overfit: float = 0.65):
+    def __init__(
+        self,
+        patience: int = 10,
+        min_delta: float = 0.0,
+        max_overfit: float = 0.65,
+    ):
         self.patience = patience
         self.min_delta = min_delta
-        self.max_overfit = max_overfit  #tolerable overfitting gap gotten from the training logs 
+        self.max_overfit = max_overfit  # tolerable overfitting gap gotten from the training logs
         self.best_loss = float("inf")
         self.counter = 0
-    
+
     def __call__(self, val_loss: float, train_loss: float) -> bool:
         # Check if overfitting exceeds threshold
         overfit_gap = val_loss - train_loss
         if overfit_gap > self.max_overfit:
-            print(f"Overfitting detected: gap={overfit_gap:.4f} > {self.max_overfit}")
+            print(
+                f"Overfitting detected: gap={overfit_gap:.4f} > {self.max_overfit}"
+            )
             return True
-        
+
         # Check if validation loss improved
         if val_loss < (self.best_loss - self.min_delta):
             self.best_loss = val_loss
@@ -33,6 +42,7 @@ class EarlyStopper:
                 return True
             return False
 
+
 def main():
     datamodel = PreprocessingData(3404)
     train_loader, val_loader, test_loader = datamodel.split_data()
@@ -40,7 +50,7 @@ def main():
     model = CNN(num_classes=11)
     criteria = nn.CrossEntropyLoss()
 
-    learning_rate = 0.001 
+    learning_rate = 0.001 / 4
 
     optimizer = optim.SGD(
         model.parameters(), lr=learning_rate, momentum=0.9, weight_decay=5e-4
@@ -65,7 +75,7 @@ def main():
         validation_loss, validation_acc = validate_one_epoch(
             model, val_loader, criteria, device=device
         )
-        
+
         if early_stop(validation_loss, train_loss):
             print(f"Early stopping triggered at epoch {epoch}")
             break
