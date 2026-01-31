@@ -97,9 +97,6 @@ def main():
         print(
             f"Train Accuracy: {train_acc}, Validation Accuracy: {validation_acc}"
         )
-        # change learning rate
-
-    torch.save(model.state_dict(), "final.pth")
 
 
 if __name__ == "__main__":

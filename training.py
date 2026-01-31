@@ -1,5 +1,4 @@
 import torch
-import torch.nn as nn
 from tqdm import tqdm
 
 
@@ -47,11 +46,3 @@ def validate_one_epoch(model, dataloader, criteria, device):
     epoch_acc = correct / total
 
     return epoch_loss, epoch_acc
-
-
-def fit():
-    pass
-
-
-def evaluate():
-    pass

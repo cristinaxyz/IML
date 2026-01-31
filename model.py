@@ -4,15 +4,13 @@ from torchvision.ops import SqueezeExcitation
 
 KERNEL_SIZE = 3
 STRIDE = 1
-
-# This is not stated in the paper but this is the default from the SE paper.
 SE_REDUCTION = 16
 
 
 class ConvolutionBlock(nn.Module):
     """
     Implements the red (dilation=2, se_module=False) and black (defaults) blocks
-        from the paper (Figure 2).
+        from the original paper (Figure 2).
     """
 
     def __init__(
@@ -96,7 +94,3 @@ class CNN(nn.Module):
         x = torch.flatten(x, 1)
         x = self.classifier(x)
         return x
-
-
-if __name__ == "__main__":
-    model = CNN(num_classes=10)

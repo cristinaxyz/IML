@@ -7,7 +7,7 @@ from matplotlib.lines import Line2D
 
 
 def parse_training_log_text(text: str) -> Dict[str, List[float]]:
-    """Parse training log `text` and return metric lists per epoch."""
+    """Parse training log text and return metric lists per epoch."""
 
     epoch_starts = [
         m.start() for m in re.finditer(r"^Epoch\s+\d+/\d+", text, re.M)

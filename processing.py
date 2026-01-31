@@ -1,6 +1,5 @@
 import pathlib
 
-import numpy as np
 import torch
 import torchvision
 import torchvision.transforms as T
@@ -89,7 +88,6 @@ class PreprocessingData:
         n = len(dataset)
         train_len = int(0.8 * n)
         val_len = int(0.1 * n)
-        test_len = n - train_len - val_len
 
         indices = torch.randperm(n, generator=self.generator).tolist()
         train_idx = indices[:train_len]

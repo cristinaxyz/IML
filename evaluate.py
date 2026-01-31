@@ -47,8 +47,6 @@ def main():
     labels = np.concatenate(all_labels)
     probs = np.concatenate(all_probs)
 
-    accuracy = (preds == labels).sum() / labels.shape[0]
-
     # Confusion matrix
     cm = np.zeros((num_classes, num_classes), dtype=int)
     for t, p in zip(labels, preds):
